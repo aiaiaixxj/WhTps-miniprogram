@@ -1,0 +1,25 @@
+<!--pages/userConsole/userConsole.wxml-->
+<view class="container" >
+	<van-grid column-num="1" border="{{false}}">
+		<van-grid-item use-slot wx:for="{{ detail  }}" wx-for-index="index" wx-for-item="item" wx:key="index" ink-type="navigateTo" data-index="{{index}}" catchtap='gotoOtherPages' style="position:relative">
+			<!-- <navigator url="../AllTrainingCoursesDetail/AllTrainingCoursesDetail?index={{resdata[index].id}}"> -->
+			<view style="width:300vw;height:15vh;position:relative;margin-top:20px;background-color:white">
+				<view class="title_item" style="">
+					<view style="font-size:14px;word-break:break-all;"> {{detail[index].name}} </view>
+				</view>
+				<view style="position:absolute;left:48%;overflow:hidden;height;10px;top:50px">
+					<view style="font-size:12px;word-break:break-all;"> 已学进度： </view>
+				</view>
+				<view>
+					<!-- <image src=" {{detail[index].titleImg}}"></image> -->
+				</view>
+				<view>
+				</view>
+			</view>
+			<!-- </navigator> -->
+      <view class="divLine"></view>
+		</van-grid-item>
+	</van-grid>
+
+
+</view>

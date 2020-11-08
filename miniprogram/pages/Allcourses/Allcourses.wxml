@@ -1,0 +1,15 @@
+<!--pages/Allcourses/Allcourses.wxml-->
+<view class="container">
+	<van-grid column-num="1">
+		<van-grid-item use-slot wx:for="{{ TrainingCourses }}" wx:key="index" ink-type="navigateTo" text="{{item.title}}" data-id="{{item.id}}" data-text="{{item.title}}" style="position:relative">
+			<image style="height:100px;position:relative;left:10%" mode="aspectFill" src="{{item.url}}" />
+			<view style="position:absolute;background-color:pink;height:100px;width:120px;left:0px;"></view>
+			<p style="position:absolute;font-size:13px;color:black;left:143px;top:25px;color:white;letter-spacing:0px">{{item.title}}</p>
+			<p style="position:absolute;font-size:11px;color:black;left:125px;top:68px;color:white;letter-spacing:0px">开始时间：2020.10.26</p>
+			<p style="position:absolute;font-size:11px;color:black;left:125px;top:78px;color:white;letter-spacing:0px">结束时间：2020.10.26</p>
+			<button style="position:absolute;font-size:11px;color:white;left:72%;top:73px;color:white;background-color:#01BE6E;letter-spacing:2px;width:60px;height:22px;line-height:22px" bindtap="confirm">通过</button>
+		</van-grid-item>
+	</van-grid>
+
+
+</view>

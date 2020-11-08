@@ -1,0 +1,38 @@
+<!--pages/login/login.wxml-->
+<view class="container" style="">
+
+	<view style="">
+		<view style="">
+			<image class="img" src="../../images/bg_login.jpg" style="" mode=""></image>
+		</view>
+		<view>
+			<image class="" src="../../images/logo_typ.png" style="position:absolute;width:140px;height:120px;left:35%;top:10%"></image>
+		</view>
+		<view>
+		</view>
+		<view class="login-from" style="">
+			<!--账号-->
+			<view class="inputView">
+				<image class="nameImage" src="../../images/loginUser.png"></image>
+				<!-- <label class="loginLab">账号</label> -->
+				<input class="inputText" placeholder="请输入用户名" bindinput="phoneInput" placeholder-class="input-placeholder" value="{{username}}" />
+			</view>
+			<view class="line"></view>
+			<!--密码-->
+			<view class="inputView">
+				<image class="keyImage" src="../../images/loginLock.png"></image>
+				<!-- <label class="loginLab">密码</label> -->
+				<input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" value="{{password}}" />
+			</view>
+			<view class="line"></view>
+
+			<!--按钮-->
+			<view class="loginBtnView">
+				<button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" style="background-color:#FC3020" bindtap="login">登录</button>
+				<!-- <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register">注册</button>  -->
+			</view>
+
+
+		</view>
+	</view>
+</view>

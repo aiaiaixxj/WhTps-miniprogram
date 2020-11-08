@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "新闻列表",
+  "usingComponents": {
+    "van-card": "../../miniprogram_npm/@vant/weapp/card/index",
+    "van-grid": "../../miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "../../miniprogram_npm/@vant/weapp/grid-item/index"
+  }
+}
