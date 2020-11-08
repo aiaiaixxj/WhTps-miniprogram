@@ -1,12 +1,22 @@
-# 云开发 quickstart
+接口：
+1.登录：/app/login.jspx?username=420111197310115693&password=888888
+2.退出登录：/app/logout.jspx?userId=
+3.新闻列表：/app/content-list.jspx?channelId=2&pageNo=
+4.新闻详情：/app/content.jspx?contentId=
+5.课程列表：
+6.课程详情：
+7.课程进度记录（一分钟调一次接口）：
+8.课程记录：/app/user-course-list.jspx?userId=&pageNo=
+9.培训班列表：/app/trainingclass-list.jspx?userId=&pageNo=
+10.培训班课程列表：/app/trainingclass-course-list.jspx?userId=&trainingclassId=
+11.培训班记录：/app/trainingclass-user-list.jspx?userId=&pageNo=
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
-
-## 参考文档
-
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+备注：
+1.分页
+2.域名做成整体变量
+3.截取字体
+4.统一字体，页面间距等
+5.所有写死的userId改为动态的
+6.列表用灰色线条隔开
 
