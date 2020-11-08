@@ -5,81 +5,85 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userId:'',
-    resdata:[],
-    totalpage:'',
-    pageNo:1,
+    userId: '',
+    resdata: [],
+    totalpage: '',
+    pageNo: 1,
     listLock: 1,
+    pageSize: 20,
+    hasMoreData: true,
     TrainingCourses: [{
       url: '../../images/block1.png',
       title: "全部课程全部课程全部课程全部",
       des: "All courses",
       id: 1
-    },
-  ],
+    }, ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  this.getData();
+    this.getData('正在加载数据...');
   },
   /*
   获取数据
   */
-getData:function () {
-  var that = this;
-  that.setData({
-    userId: wx.getStorageSync("userId"),
-  })
-  wx.request({
-    url:  app.globalData.URL + '/app/trainingclass-list.jspx',
-    data: {
-      userId:that.data.userId, 
-      pageNo:that.data.pageNo
-    },
-    method: 'GET',//方法分GET和POST，根据需要写
-    header: {//定死的格式，不用改，照敲就好
-      'Content-Type': 'application/json'
-    },
-    success: function (res) {//这里写调用接口成功之后所运行的函数
-      console.log(res.data);//调出来的数据在控制台显示，方便查看
-      var e = JSON.parse(res.data.json);
-      console.log(e.trainingclassusers);
-      that.setData({
-        resdata: e.trainingclassusers,//res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
-        totalPage: e.totalPage,
-      })
-      that.data.listLock = 1;
-      that.data.totalpage = e.totalPage;
-      console.log('totalpage', that.data.totalpage);
-      if (that.data.totalpage >= that.data.pageNo) {
-          console.log('翻页之前数据', that.data.resdata) 
-
-          var listData = that.data.resdata.concat(e.trainingclassusers);
-
-          console.log('翻页之后数据', that.data.resdata.concat(e.trainingclassusers))
-          //为下一页的请求参数做准备
+  getData: function (message) {
+    wx.showLoading({
+      title: message,
+    })
+    var that = this;
+    that.setData({
+      userId: wx.getStorageSync("userId"),
+    })
+    wx.request({
+      url: app.globalData.URL + '/app/trainingclass-list.jspx',
+      data: {
+        userId: that.data.userId,
+        pageNo: that.data.pageNo
+      },
+      method: 'GET', //方法分GET和POST，根据需要写
+      header: { //定死的格式，不用改，照敲就好
+        'Content-Type': 'application/json'
+      },
+      success: function (res) { //这里写调用接口成功之后所运行的函数
+        console.log(res.data); //调出来的数据在控制台显示，方便查看
+        var e = JSON.parse(res.data.json);
+        console.log(e.trainingclassusers);
+        // that.setData({
+        //   resdata: e.trainingclassusers,//res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
+        //   totalPage: e.totalPage,
+        // })
+        var contentlistTem = that.data.resdata;
+        if (that.data.pageNo == 1) {
+          contentlistTem = []
+        }
+        var resdata = e.trainingclassusers;
+        if (that.data.pageNo >= e.totalPage) {
           that.setData({
-            resdata: listData,
-              loading: false,
-          });
-          // wx.hideLoading();
-          that.data.pageNo += 1; //页码增加，保证下次调用时为新的一页。
-          console.log('翻页', that.data.pageNo);
-          console.log('setData', listData);
+            resdata: contentlistTem.concat(resdata),
+            hasMoreData: false
+          })
+        } else {
+          that.setData({
+            resdata: contentlistTem.concat(resdata),
+            hasMoreData: true,
+            pageNo: that.data.pageNo + 1
+          })
+        }
+      },
+      fail: function (res) { //这里写调用接口失败之后所运行的函数
+        console.log('.........fail..........');
+      },
+      complete: function () {
+        wx.hideLoading();
+        // complete
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
       }
-
-
-
-
-    },
-    fail: function (res) {//这里写调用接口失败之后所运行的函数
-      console.log('.........fail..........');
-    }
-  })
-},
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -112,6 +116,10 @@ getData:function () {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    console.log('下拉');
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.data.pageNo = 1
+    this.getData('正在刷新数据')
 
   },
 
@@ -119,24 +127,13 @@ getData:function () {
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-       console.log("ok")
-       var self = this;
-       console.log('totalpage', self.data.totalpage)
-       console.log('page_num', self.data.pageNo)
-       if (self.data.totalpage < self.data.pageNo) {
-           console.log("没有新数据");
-           self.setData({
-               
-           });
-           self.data.listLock = 2;
-       }
-       if (self.data.listLock == 2) {
-           return false;
-       }
-       wx.showLoading({ title: '加载中', icon: 'loading', duration: 2000 });
-
-       self.getData(self.data.pageNo);
-
+    if (this.data.hasMoreData) {
+      this.getData('加载更多数据')
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
   },
 
   /**
