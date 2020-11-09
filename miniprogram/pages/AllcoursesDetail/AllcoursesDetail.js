@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    courseId:'',
     userId: '',
-    resdata: [],
+    detail: [],
     totalpage: '',
     pageNo: 1,
     listLock: 1,
@@ -19,29 +20,37 @@ Page({
       id: 1
     }, ],
   },
+  videoErrorCallback: function (e) {
 
+    console.log('视频错误信息:'+e.detail.errMsg);
+  
+   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData('正在加载数据...');
+    var courseId = options.index;
+    console.log(courseId);
+    var that =this;
+    that.setData({
+      courseId:courseId
+    });
+    that.getData();
   },
   /*
   获取数据
   */
-  getData: function (message) {
-    wx.showLoading({
-      title: message,
-    })
+  getData: function () {
+
     var that = this;
     that.setData({
       userId: wx.getStorageSync("userId"),
     })
     wx.request({
-      url: app.globalData.URL + '/app/user-course-list.jspx',
+      url: app.globalData.URL + '/app/course-info.jspx',
       data: {
         userId: that.data.userId,
-        pageNo: that.data.pageNo
+        courseId:that.data.courseId
       },
       method: 'GET', //方法分GET和POST，根据需要写
       header: { //定死的格式，不用改，照敲就好
@@ -50,37 +59,17 @@ Page({
       success: function (res) { //这里写调用接口成功之后所运行的函数
         console.log(res.data); //调出来的数据在控制台显示，方便查看
         var e = JSON.parse(res.data.json);
-        console.log(e.courses);
-        // that.setData({
-        //   resdata: e.courses,//res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
-        //   totalPage: e.totalPage,
-        // })
-        var contentlistTem = that.data.resdata;
-        if (that.data.pageNo == 1) {
-          contentlistTem = []
-        }
-        var resdata = e.courses;
-        if (that.data.pageNo >= e.totalPage) {
-          that.setData({
-            resdata: contentlistTem.concat(resdata),
-            hasMoreData: false
-          })
-        } else {
-          that.setData({
-            resdata: contentlistTem.concat(resdata),
-            hasMoreData: true,
-            pageNo: that.data.pageNo + 1
-          })
-        }
+        console.log(e);
+        that.setData({
+          detail: e,//res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
+
+        })
       },
       fail: function (res) { //这里写调用接口失败之后所运行的函数
         console.log('.........fail..........');
       },
       complete: function () {
-        wx.hideLoading();
-        // complete
-        wx.hideNavigationBarLoading() //完成停止加载
-        wx.stopPullDownRefresh() //停止下拉刷新
+     
       }
     })
   },
@@ -88,7 +77,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -116,10 +105,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log('下拉');
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.data.pageNo = 1
-    this.getData('正在刷新数据')
+    
 
   },
 
@@ -127,13 +113,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.hasMoreData) {
-      this.getData('加载更多数据')
-    } else {
-      wx.showToast({
-        title: '没有更多数据',
-      })
-    }
+    
   },
 
   /**

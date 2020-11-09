@@ -2,12 +2,12 @@
 
 <view class="container" style="position:relative">
 	<label class='oneItem' style="position:absolute;top:10px;">{{detail.title}}</label>
-	<label class='' style="color:gray;top:38px;position:absolute">{{detail.date}}</label>
+	<label class='' style="color:gray;top:108px;position:absolute">{{detail.date}}</label>
 	<!-- <label class='oneItem' style="color:gray;top:58px;position:absolute;white-space:pre-line">{{detailData.content}}</label> -->
 	<!-- <view style="text-indent:56rpx;color:gray;top:58px;position:absolute;left:2%">
     <text class="intro" style="font-size: 28rpx;line-height: 1.6;"> {{detail.txt}} </text>
 </view> -->
-	<view wx:if="{{detail.txt}}" class="wxParse" style="position:absolute;top:80px;left:0">
+	<view wx:if="{{detail.txt}}" class="wxParse" style="position:absolute;top:130px;left:0">
 		<template is="wxParse" data="{{wxParseData:txt.nodes}}" />
 	</view>
 	<image style="height: 200px;width:100%; position:absolute;top:160px" mode="" src="{{detailData.url}}" />

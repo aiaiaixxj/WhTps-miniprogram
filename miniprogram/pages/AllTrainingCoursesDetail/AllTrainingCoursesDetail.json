@@ -1,4 +1,10 @@
 {
   "navigationBarTitleText": "培训班课程列表",
-  "usingComponents": {}
+  "usingComponents": {
+    "van-card": "../../miniprogram_npm/@vant/weapp/card/index",
+    "van-grid": "../../miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "../../miniprogram_npm/@vant/weapp/grid-item/index",
+    "van-button": "../../miniprogram_npm/@vant/weapp/button/index",
+    "van-divider": "../../miniprogram_npm/@vant/weapp/divider/index"
+  }
 }

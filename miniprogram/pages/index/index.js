@@ -9,6 +9,9 @@ Page({
     }
   },
   data: {
+    userId:'',
+    realname:'',
+    times:'',
     isVal: "xxj",
     avatarUrl: './user-unlogin.png',
     userInfo: {},
@@ -62,16 +65,47 @@ Page({
         id: 5
       },
     ]
-   
+
   },
   onChange(event) {
     this.setData({
       active: event.detail
     });
   },
+  exit:function(){
+    var that =this;
+    that.setData({
+      userId: wx.getStorageSync("userId"),
+    })
+    wx.request({
+      url: app.globalData.URL +'/app/logout.jspx',
+      method: 'GET',//方法分GET和POST，根据需要写
+      data:{
+        userId:that.data.userId,
+      },
+      header: {//定死的格式，不用改，照敲就好
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {//这里写调用接口成功之后所运行的函数
+        console.log('ok')
+        wx.redirectTo({
+          url: '../login/login',
+        })
+        // var e = JSON.parse(res.data.json);
+        // console.log(res.data.json)
+        // that.setData({
+        // //res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
+        // })
+      },
+      fail: function (res) {//这里写调用接口失败之后所运行的函数
+        console.log('.........fail..........');
+      }
+    })
+
+  },
   gotoOtherPages: function (e) {
     let aimtext = e.currentTarget.dataset.text; //获取点击目标文本title
-    let index =e.currentTarget.dataset.index;
+    let index = e.currentTarget.dataset.index;
     console.log(index);
     console.log(aimtext);
     if ("课程列表" == aimtext) {
@@ -91,7 +125,7 @@ Page({
     }
     if ("培训班记录" == aimtext) {
       wx.navigateTo({
-       
+
         url: '../TrainingCoursesRecord/TrainingCoursesRecord'
       });
     }
@@ -142,7 +176,12 @@ Page({
   },
 
   onLoad: function () {
-   
+    var that =this;
+    that.setData({
+      realname: wx.getStorageSync("realname"),
+      times: wx.getStorageSync("times"),
+
+    })
 
     // 获取用户信息
     wx.getSetting({
@@ -246,5 +285,18 @@ Page({
       }
     })
   },
+  onShow: function () {
+    wx.hideHomeButton({
+      success: function () {
+        console.log("hide home success");
+      },
+      fail: function () {
+        console.log("hide home fail");
+      },
+      complete: function () {
+        console.log("hide home complete");
+      },
+    });
+  }
 
 })

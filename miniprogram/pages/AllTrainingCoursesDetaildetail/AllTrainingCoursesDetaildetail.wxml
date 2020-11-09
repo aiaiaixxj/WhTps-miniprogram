@@ -1,0 +1,24 @@
+<view class="container" style="">
+	<view class="title_item" style="">
+		<view style="font-size:14px;word-break:break-all;margin:10px 40px"> {{detail.name}} </view>
+	</view>
+	<view class="" style="top:50px">
+		<video src="http://www.whce.gov.cn{{detail.path}}" binderror="videoErrorCallback"></video>
+	</view>
+	<view style="position:relative;left:-24%">
+		<view style="font-size:14px;word-break:break-all;margin:10px 0px;">课程教师： {{detail.teacher}} </view>
+	</view>
+	<view style="position:relative;left:-24%">
+		<view style="font-size:14px;word-break:break-all;margin:10px 0px;">课程分类： 新增课程 </view>
+	</view>
+	<view style="position:relative;left:-32%">
+		<view style="font-size:14px;word-break:break-all;margin:10px 0px;">学时：0.9 </view>
+	</view>
+	<view style="position:relative;left:-32%">
+		<view style="font-size:14px;word-break:break-all;margin:10px 0px;">进度： {{detail.progress}} </view>
+	</view>
+	<view class="divLine"></view>
+	<view style="">
+		<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{detail.absract}} </text>
+	</view>
+</view>

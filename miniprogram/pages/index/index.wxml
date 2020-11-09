@@ -12,13 +12,15 @@
 		<span style="font-size:16px">武汉市团校</span>
 	</view>
 	<view style="position:absolute;top:15px;z-index:20;color:white;letter-spacing:1px;right:5%;font-size:10px">
-	<span style="font-size:14px">退出</span>
+	<!-- <span style="font-size:14px" bindtap="exit">退出</span> -->
+  <!-- <button bindtap="exit" style="position:absolute"></button> -->
+  <view style="font-size:14px" id="tapTest" data-hi="Weixin" bindtap="exit"> 退出 </view>
 	</view>
 	<view style="position:absolute;z-index:20">
 		<image src="../../images/info_area.png" style="position:relative;top:90px;z-index:20"></image>
-		<span style="position:absolute;top:165px;z-index:20;left:46%">张三</span>
+		<span style="position:absolute;top:165px;z-index:20;left:46%">{{realname}}</span>
 		<span style="position:absolute;top:205px;z-index:20;left:35%">已修学时：</span>
-		<span style="position:absolute;top:205px;z-index:20;left:58%">64.8</span>
+		<span style="position:absolute;top:205px;z-index:20;left:58%">{{times}}</span>
 
 	</view>
 	<view class="tools-box" style="position:absolute;z-index:20;top:350px">

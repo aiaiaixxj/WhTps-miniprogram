@@ -61,9 +61,12 @@ Page({
         //4.解密成功后 获取自己服务器返回的结果
         if (res.data.code == 1) {
           wx.setStorageSync("userId",e.userId);
-          wx.navigateTo({
-            url: '../index/index'
-          });
+          wx.setStorageSync("realname",e.realname);
+          wx.setStorageSync("times",e.times);
+
+            wx.redirectTo({
+                url: '../index/index',
+              })
         } else {
           console.log('账号或密码错误')
         }
