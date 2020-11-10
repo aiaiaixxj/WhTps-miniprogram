@@ -1,24 +1,13 @@
-<!--pages/AllTrainingCourses/AllTrainingCourses.wxml-->
-<view class="container">
-	<van-grid column-num="1" border="{{ false }}" >
-		<van-grid-item use-slot wx:for="{{ resdata  }}" wx-for-index="index" wx-for-item="item" wx:key="index" ink-type="navigateTo" data-index="{{index}}" catchtap='gotoOtherPages' style="position:relative">
-			<!-- <view style="z-index:99;position:absolute;left:60%;top:50px;">
-				<van-button type="primary" size="mini" style="">通过</van-button>
-			</view> -->
-			<navigator url="../AllcoursesDetail/AllcoursesDetail?index={{resdata[index].id}}">
-				<view style="width:100vw;height:12vh;position:relative">
-				<view style="position:absolute;left:2%;">
-				<image style="width:45vw;height:12vh" src=" http://www.whce.gov.cn{{resdata[index].titleImg}}"></image>
-				</view>
-					<view class="title_item" style="">
-						<view style="font-size:14px;word-break:break-all;"> {{resdata[index].name}} </view>
-					</view>
-				<view style="position:absolute;left:48%;overflow:hidden;height;10px;top:40px">
-					<view style="font-size:12px;word-break:break-all;"> 已学进度：{{resdata[index].progress}} </view>
-				</view>
-				</view>
+<view class="box transition" wx:if="{{resdata.length}}">
+	<view class="user-panel" wx:for="{{resdata}}" wx:key="index">
+		<navigator url="../AllcoursesDetail/AllcoursesDetail?index={{resdata[index].id}}" style="" class="navigator">
+		<image class="head" src="http://www.whce.gov.cn{{resdata[index].titleImg}} "></image>
+		<view class="center">
+			<view class="name">
+				<text class="name-text"> {{resdata[index].name}}</text>
+			</view>
+			<view class="code">已学进度：{{resdata[index].progress}} </view>
+		</view>
 			</navigator> 
-      <view class="divLine"></view>
-		</van-grid-item>
-	</van-grid>
+	</view>
 </view>

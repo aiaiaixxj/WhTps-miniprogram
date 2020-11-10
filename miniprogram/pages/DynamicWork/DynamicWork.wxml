@@ -1,21 +1,13 @@
-<view class="container">
-	<van-grid column-num="1" border="{{ false }}">
-		<van-grid-item use-slot wx:for="{{ resdata  }}" wx-for-index="index" wx-for-item="item" wx:key="index" ink-type="navigateTo" data-index="{{index}}" catchtap='gotoOtherPages' style="position:relative">
-			<navigator url="../newsDetail/newsDetail?index={{resdata[index].id}}">
-				<view style="width:100vw;height:12vh;position:relative">
-					<view class="title_item" style="">
-						<view style="font-size:14px;word-break:break-all;"> {{resdata[index].title}} </view>
-					</view>
-					<view style="position:absolute;left:30%;overflow:hidden;height;10px;top:30px;color:gray">
-						<view style="font-size:12px">发布时间：{{resdata[index].date}}</view>
-					</view>
-					<view>
-						
-					</view>
+<view class="box transition" wx:if="{{resdata.length}}">
+	<view class="user-panel" wx:for="{{resdata}}" wx:key="index">
+		<navigator url="../newsDetail/newsDetail?index={{resdata[index].id}}" style="" class="navigator">
+			<!-- <image class="head" src="http://www.whce.gov.cn{{resdata[index].titleImg}} "></image> -->
+			<view class="center">
+				<view class="name">
+					<text class="name-text"> {{resdata[index].title}}</text>
 				</view>
-
-			</navigator>
-      <view class="divLine"></view>
-		</van-grid-item>
-	</van-grid>
+				<view class="code">发布时间：{{resdata[index].date}} </view>
+			</view>
+		</navigator>
+	</view>
 </view>
