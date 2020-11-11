@@ -63,6 +63,8 @@ Page({
           wx.setStorageSync("userId",e.userId);
           wx.setStorageSync("realname",e.realname);
           wx.setStorageSync("times",e.times);
+          wx.setStorageSync("orgname",e.orgname);
+
 
             wx.redirectTo({
                 url: '../index/index',

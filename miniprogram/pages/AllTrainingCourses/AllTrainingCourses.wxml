@@ -1,6 +1,6 @@
 <view class="box transition" wx:if="{{resdata.length}}">
 	<view class="user-panel" wx:for="{{resdata}}" wx:key="index">
-		<van-button type="primary" size="mini" custom-style="width:15rpx;height:38rpx;line-height:38rpx;position:relative;top:160rpx;left:590rpx" style="" class="vanbtn">通过</van-button>
+		<van-button type="primary" size="mini" custom-style="width:15rpx;height:38rpx;line-height:38rpx;position:relative;top:129rpx;left:590rpx" style="" class="vanbtn">通过</van-button>
 		<navigator url="../AllTrainingCoursesDetail/AllTrainingCoursesDetail?index={{resdata[index].id}}" style="" class="navigator">
 			<image class="head" src="http://www.whce.gov.cn/u/cms/inner_super/202003/24113534czya.png "></image>
 			<view class="center">

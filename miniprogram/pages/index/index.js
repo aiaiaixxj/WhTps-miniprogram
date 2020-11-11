@@ -12,6 +12,7 @@ Page({
     userId:'',
     realname:'',
     times:'',
+    orgname:'',
     isVal: "xxj",
     avatarUrl: './user-unlogin.png',
     userInfo: {},
@@ -180,6 +181,7 @@ Page({
     that.setData({
       realname: wx.getStorageSync("realname"),
       times: wx.getStorageSync("times"),
+      orgname: wx.getStorageSync("orgname")
 
     })
 

@@ -1,41 +1,24 @@
 <!--index.wxml-->
 <view class="container">
-	<!-- <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
-      <block wx:for="{{movies}}" wx:key="index">  
-        <swiper-item>  
-          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
-        </swiper-item>  
-      </block>  
-  </swiper> -->
-
 	<view style="position:absolute;top:10px;z-index:20;color:white;letter-spacing:2px">
 		<span style="font-size:16px">武汉市团校</span>
 	</view>
 	<view style="position:absolute;top:15px;z-index:20;color:white;letter-spacing:1px;right:5%;font-size:10px">
-	<!-- <span style="font-size:14px" bindtap="exit">退出</span> -->
-  <!-- <button bindtap="exit" style="position:absolute"></button> -->
   <view style="font-size:14px" id="tapTest" data-hi="Weixin" bindtap="exit"> 退出 </view>
 	</view>
 	<view style="position:absolute;z-index:20">
 		<image src="../../images/info_area.png" style="position:relative;top:90px;z-index:20"></image>
-		<span style="position:absolute;top:165px;z-index:20;left:46%">{{realname}}</span>
-		<span style="position:absolute;top:205px;z-index:20;left:35%">已修学时：</span>
-		<span style="position:absolute;top:205px;z-index:20;left:58%">{{times}}</span>
-
+		<!-- <span style="position:absolute;top:165px;z-index:20;left:46%">姓名：{{realname}}</span>
+    	<span style="position:absolute;top:195px;z-index:20;left:16%">单位：{{orgname}}</span>
+		<span style="position:absolute;top:225px;z-index:20;left:35%">已修学时：</span>
+		<span style="position:absolute;top:225px;z-index:20;left:58%">{{times}}</span> -->
+    	<view style="position:absolute;display:flex;flex-direction:column;z-index:99;left:35%;top:60%">
+		<view style="font-size:14px;margin:8px -20px;">姓名：{{realname}} </view>
+		<view style="font-size:14px;margin:8px -20px;">单位：{{orgname}}   </view>
+		<view style="font-size:14px;margin:8px -20px;">已修学时：{{times}} </view>
+	</view>
 	</view>
 	<view class="tools-box" style="position:absolute;z-index:20;top:350px">
-		<!-- <van-grid clickable>
-  <van-grid-item 
-  icon="photo-o" 
-  text="{{item.title}}" 
-  wx:for="{{lists}}" 
-  wx:key="index"
-  ink-type="navigateTo"
-  catchtap='gotoOtherPages'
-  data-id="{{item.id}}"
-  data-text="{{item.title}}"
-   />
-</van-grid> -->
 		<van-grid column-num="3" clickable>
 			<van-grid-item use-slot wx:for="{{ MyCourses }}"
        wx:key="index" 
@@ -54,43 +37,4 @@
 	</view>
 	<image src="../../images/bg_top.png" style="position:relative;width:100%"></image>
 	<image src="../../images/bg_bottom.png" style="position:relative;top:-15px;width:100%;height:300%"></image>
-
-
-	<!-- <view style="width:100%;height:6rem;display:flex"> -->
-	<!-- <swiper class="swiper" indicator-dots="" autoplay="true" interval="4000" duration="2000">  
-      <block wx:for="{{movies0}}" wx:key="index">  
-        <swiper-item>  
-          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
-        </swiper-item>  
-      </block>  
-  </swiper> -->
-	<!-- <swiper class="swiper" indicator-dots="" autoplay="true" interval="4000" duration="2000">  
-      <block wx:for="{{movies1}}" wx:key="index">  
-        <swiper-item>  
-          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
-        </swiper-item>  
-      </block>  
-  </swiper> -->
-	<!-- </view> -->
-
-	<!-- <van-tabbar active="{{ active }}" bind:change="onChange">
-  <van-tabbar-item info="3">
-    <image
-      slot="icon"
-      src="{{ icon.normal }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    <image
-      slot="icon-active"
-      src="{{ icon.active }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    自定义
-  </van-tabbar-item>
-  <van-tabbar-item icon="search">标签</van-tabbar-item>
-  <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
-</van-tabbar> -->
-
 </view>

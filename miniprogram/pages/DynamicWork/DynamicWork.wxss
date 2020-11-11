@@ -80,5 +80,5 @@ page {
 .code {
   font-size: 24rpx;
   color: #999;
-  margin-top: 27rpx;
+  margin-top: 10rpx;
 }

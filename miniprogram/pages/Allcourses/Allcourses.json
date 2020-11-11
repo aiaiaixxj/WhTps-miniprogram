@@ -7,4 +7,5 @@
     "van-button": "../../miniprogram_npm/@vant/weapp/button/index",
     "van-divider": "../../miniprogram_npm/@vant/weapp/divider/index"
   }
+
 }
