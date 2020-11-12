@@ -25,9 +25,11 @@ Page({
   timeUpdate(e) {
     var that = this;
     that.setData({
-      videoCurrentTime: e.detail.currentTime
+      videoCurrentTime:Math.floor(e.detail.currentTime) 
     })
-    console.log(e.detail.currentTime);
+    console.log("times",that.data.videoCurrentTime);
+    console.log( "courseId:", that.data.courseId);
+    console.log("userId:", that.data.userId);
   },
   videoErrorCallback: function (e) {
     console.log('视频错误信息:' + e.detail.errMsg);
@@ -50,7 +52,7 @@ Page({
           data: {
             courseId: that.data.courseId,
             userId: that.data.userId,
-            times:that.data.videoCurrentTime
+            times:that.data.videoCurrentTime 
           },
           method: 'GET', //方法分GET和POST，根据需要写
           header: { //定死的格式，不用改，照敲就好

@@ -12,6 +12,7 @@ Page({
     listLock: 1,
     pageSize: 20,
     hasMoreData: true,
+    status: '',
     TrainingCourses: [{
       url: '../../images/block1.png',
       title: "全部课程全部课程全部课程全部",
@@ -36,6 +37,7 @@ Page({
     var that = this;
     that.setData({
       userId: wx.getStorageSync("userId"),
+
     })
     wx.request({
       url: app.globalData.URL + '/app/trainingclass-list.jspx',
@@ -50,7 +52,27 @@ Page({
       success: function (res) { //这里写调用接口成功之后所运行的函数
         console.log(res.data); //调出来的数据在控制台显示，方便查看
         var e = JSON.parse(res.data.json);
+        let arryData =e.trainingclassusers;
         console.log(e.trainingclassusers);
+        var statusid =arryData.map((item)=>{
+          return item.status;
+        })
+        if (statusid == 0) {
+          that.setData({
+            status : '未开始'
+          })
+        }
+        if (statusid == 1) {
+          that.setData({
+            status : '已开始'
+          })
+        }
+        if (statusid == 2) {
+          that.setData({
+            status : '已结束'
+          })
+        }
+
         // that.setData({
         //   resdata: e.trainingclassusers,//res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
         //   totalPage: e.totalPage,

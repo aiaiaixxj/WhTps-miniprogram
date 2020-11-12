@@ -51,6 +51,26 @@ Page({
         console.log(res.data); //调出来的数据在控制台显示，方便查看
         var e = JSON.parse(res.data.json);
         console.log(e.trainingclassusers);
+        let arryData =e.trainingclassusers;
+        console.log(e.trainingclassusers);
+        var statusid =arryData.map((item)=>{
+          return item.status;
+        })
+        if (statusid == 0) {
+          that.setData({
+            status : '未开始'
+          })
+        }
+        if (statusid == 1) {
+          that.setData({
+            status : '已开始'
+          })
+        }
+        if (statusid == 2) {
+          that.setData({
+            status : '已结束'
+          })
+        }
         // that.setData({
         //   resdata: e.courses,//res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
         //   totalPage: e.totalPage,

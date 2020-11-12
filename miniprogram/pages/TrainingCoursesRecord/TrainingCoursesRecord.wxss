@@ -83,3 +83,8 @@ page {
   color: #999;
   margin-top: 28rpx;
 }
+.icon-class{
+
+  left: -200rpx !important; 
+  
+}
