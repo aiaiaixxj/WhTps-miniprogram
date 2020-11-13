@@ -99,7 +99,7 @@ Page({
             status: '已开始'
           })
         }
-        if (statusid == 4) {
+        if (statusid == 2) {
           that.setData({
             status: '已结束'
           })
