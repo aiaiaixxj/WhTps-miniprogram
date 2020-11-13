@@ -13,8 +13,9 @@ Page({
     listLock: 1,
     pageSize: 20,
     hasMoreData: true,
-    videoCurrentTime:'',
-    times:'',
+    videoCurrentTime:1,
+    times:1,
+    videoDuration:1,
     TrainingCourses: [{
       url: '../../images/block1.png',
       title: "全部课程全部课程全部课程全部",
@@ -25,11 +26,13 @@ Page({
   timeUpdate(e) {
     var that = this;
     that.setData({
-      videoCurrentTime:Math.floor(e.detail.currentTime) 
+      videoCurrentTime:Math.floor(e.detail.currentTime) ,
+      videoDuration: Math.floor(e.detail.duration) 
     })
     console.log("times",that.data.videoCurrentTime);
     console.log( "courseId:", that.data.courseId);
     console.log("userId:", that.data.userId);
+    console.log("videoDuration:", that.data.videoDuration);
   },
   videoErrorCallback: function (e) {
     console.log('视频错误信息:' + e.detail.errMsg);
@@ -104,7 +107,7 @@ Page({
         console.log(e);
         that.setData({
           detail: e, //res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
-
+            
         })
       },
       fail: function (res) { //这里写调用接口失败之后所运行的函数

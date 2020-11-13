@@ -13,6 +13,8 @@ Page({
     pageSize: 20,
     hasMoreData: true,
     status: '',
+    jumpid: '',
+    statusid:'',
     TrainingCourses: [{
       url: '../../images/block1.png',
       title: "全部课程全部课程全部课程全部",
@@ -25,8 +27,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
     this.getData('正在加载数据...');
   },
+  // 跳转页面
+  gotoOtherpages: function () {
+    var that = this;
+    if(that.data.statusid == 1){
+      wx.navigateTo({
+        url: '../AllTrainingCoursesDetail/AllTrainingCoursesDetail?index=' + that.data.jumpid
+      });
+    }
+    if (that.data.statusid == 0 || that.data.statusid == 2){
+      wx.navigateTo({
+        url: '' 
+      });
+    }
+     
+    else{
+      wx.navigateTo({
+        url: '' 
+      });
+    }
+      
+  },
+
   /*
   获取数据
   */
@@ -52,24 +78,36 @@ Page({
       success: function (res) { //这里写调用接口成功之后所运行的函数
         console.log(res.data); //调出来的数据在控制台显示，方便查看
         var e = JSON.parse(res.data.json);
-        let arryData =e.trainingclassusers;
+        let arryData = e.trainingclassusers;
+
+
+        var jumpid = arryData.map((item) => {
+          return item.id;
+        })
+        that.setData({
+          jumpid: jumpid
+        });
+
         console.log(e.trainingclassusers);
-        var statusid =arryData.map((item)=>{
+        var statusid = arryData.map((item) => {
           return item.status;
+        })
+        that.setData({
+          statusid:statusid
         })
         if (statusid == 0) {
           that.setData({
-            status : '未开始'
+            status: '未开始'
           })
         }
         if (statusid == 1) {
           that.setData({
-            status : '已开始'
+            status: '已开始'
           })
         }
         if (statusid == 2) {
           that.setData({
-            status : '已结束'
+            status: '已结束'
           })
         }
 

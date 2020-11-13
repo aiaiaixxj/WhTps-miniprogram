@@ -1,7 +1,8 @@
 <view class="box transition" wx:if="{{resdata.length}}">
 	<view class="user-panel" wx:for="{{resdata}}" wx:key="index">
-	<van-button type="primary" size="mini" custom-style="width:15rpx;height:38rpx;line-height:38rpx;position:relative;top:129rpx;left:590rpx" style="" class="vanbtn">通过</van-button>
-		<navigator url="../TrainingCoursesRecordDetail/TrainingCoursesRecordDetail?index={{resdata[index].id}}" style="" class="navigator">
+		<van-button type="primary" size="mini" custom-style="width:15rpx;height:38rpx;line-height:38rpx;position:relative;top:129rpx;left:590rpx" style="" class="vanbtn">{{status}}</van-button>
+		<!-- <navigator url="../TrainingCoursesRecordDetail/TrainingCoursesRecordDetail?index={{resdata[index].id}}" style="" class="navigator"> -->
+		<view class="navigator" bindtap="gotoOtherpages">
 			<image class="head" src=" https://whtx.gkybi.com.cn{{resdata[index].titleImg}} "></image>
 			<view class="center">
 				<view class="name">
@@ -10,6 +11,7 @@
 				<view class="code">发布时间：{{resdata[index].startDate}} </view>
 				<view class="code">结束时间：{{resdata[index].endDate}} </view>
 			</view>
-		</navigator>
+		</view>
+		<!-- </navigator> -->
 	</view>
 </view>
