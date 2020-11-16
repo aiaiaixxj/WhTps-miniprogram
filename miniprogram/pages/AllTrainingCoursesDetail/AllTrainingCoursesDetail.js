@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {   
-    userId:'',     
+    userId:'',   
+    jumpid:''  
   },
   /**
    * 生命周期函数--监听页面加载
@@ -33,12 +34,29 @@ Page({
         that.setData({
           detail: e.courses,//res.data就是你调出来的所有数据（当然也可以在这里面自定义想要调用的数据），然后把值赋给resdata，之后对resdata进行处理即可，具体见wxml
         })
+        let arryData = e.courses;
+        // var jumpid = arryData.map((item) => {
+        //   return item.courseId;
+        // })
+        for(var k in arryData){
+          var jumpid =   arryData[k].courseId
+          }
+        that.setData({
+          jumpid: jumpid
+        });
       },
       fail: function (res) {//这里写调用接口失败之后所运行的函数
         console.log('.........fail..........');
       }
     })
   },
+    // 跳转页面
+    gotoOtherpages: function () {
+      var that =this;
+        wx.navigateTo({
+          url: '../AllTrainingCoursesDetaildetail/AllTrainingCoursesDetaildetail?index=' + that.data.jumpid
+        });    
+    },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

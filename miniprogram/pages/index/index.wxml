@@ -4,34 +4,24 @@
 		<span style="font-size:16px">武汉市团校</span>
 	</view>
 	<view style="position:absolute;top:15px;z-index:20;color:white;letter-spacing:1px;right:5%;font-size:10px">
-  <view style="font-size:14px" id="tapTest" data-hi="Weixin" bindtap="exit"> 退出 </view>
+		<view style="font-size:14px" id="tapTest" data-hi="Weixin" bindtap="exit"> 退出 </view>
 	</view>
 	<view style="position:absolute;z-index:20">
 		<image src="../../images/info_area.png" style="position:relative;top:90px;z-index:20"></image>
-		<!-- <span style="position:absolute;top:165px;z-index:20;left:46%">姓名：{{realname}}</span>
-    	<span style="position:absolute;top:195px;z-index:20;left:16%">单位：{{orgname}}</span>
-		<span style="position:absolute;top:225px;z-index:20;left:35%">已修学时：</span>
-		<span style="position:absolute;top:225px;z-index:20;left:58%">{{times}}</span> -->
-    	<view style="position:absolute;display:flex;flex-direction:column;z-index:99;left:35%;top:60%">
-		<view style="font-size:14px;margin:8px -20px;">姓名：{{realname}} </view>
-		<view style="font-size:14px;margin:8px -20px;">单位：{{orgname}}   </view>
-		<view style="font-size:14px;margin:8px -20px;">已修学时：{{times}} </view>
-	</view>
+		<view style="position:absolute;display:flex;flex-direction:column;z-index:99;left:15%;top:37%">
+			<view style="font-size:17px;margin:8px -20px;">{{orgname}} </view>
+		</view>
+		<view style="position:absolute;display:flex;flex-direction:column;z-index:99;left:50%;top:75%">
+			<view style="font-size:17px;margin:0px -20px;">{{realname}} </view>
+			<view style="font-size:17px;margin:0px -20px;">{{times}} </view>
+		</view>
 	</view>
 	<view class="tools-box" style="position:absolute;z-index:20;top:350px">
 		<van-grid column-num="3" clickable>
-			<van-grid-item use-slot wx:for="{{ MyCourses }}"
-       wx:key="index" 
-       ink-type="navigateTo"
-        text="{{item.title}}" 
-         data-id="{{item.id}}"
-         data-index="{{index}}"
-         data-text="{{item.title}}"
-         catchtap='gotoOtherPages'
-      style="position:relative">
+			<van-grid-item use-slot wx:for="{{ MyCourses }}" wx:key="index" ink-type="navigateTo" text="{{item.title}}" data-id="{{item.id}}" data-index="{{index}}" data-text="{{item.title}}" catchtap='gotoOtherPages' style="position:relative">
 				<image style="width:100px ; height: 100px;position:relative" src="{{item.url}}" />
-        <p style="position:absolute;font-size:13px;color:black;left:23px;top:25px;color:white;letter-spacing:2px">{{item.title}}</p>
-         <p style="position:absolute;font-size:9px;color:black;left:20px;top:48px;color:white;letter-spacing:0px">{{item.des}}</p>
+				<p style="position:absolute;font-size:13px;color:black;left:23px;top:25px;color:white;letter-spacing:2px">{{item.title}}</p>
+				<p style="position:absolute;font-size:9px;color:black;left:20px;top:48px;color:white;letter-spacing:0px">{{item.des}}</p>
 			</van-grid-item>
 		</van-grid>
 	</view>

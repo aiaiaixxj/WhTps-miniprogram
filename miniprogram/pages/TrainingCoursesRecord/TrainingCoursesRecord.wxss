@@ -1,9 +1,13 @@
 /* pages/databaseGuide/databaseGuide.wxss */
 page {
   width: 100%;
+  overflow-x:hidden;
   background-color: #f6f6f6;
 }
-
+.user-panel{
+  width: 100%;
+  overflow-x:hidden;
+}
 .divLine {
   background: #E0E3DA;
   width: 100%;
@@ -41,7 +45,7 @@ page {
 .navigator {
   display: flex;
   align-items: center;
-  border-bottom: 2rpx solid gray;
+  border-bottom: 2rpx solid #C0C0C0;
   margin-bottom: -10rpx;
   padding-bottom: 33rpx;
 }
@@ -64,7 +68,7 @@ page {
 }
 
 .name-text {
-  margin-top: -35rpx;
+  margin-top: -50rpx;
   font-size: 27rpx;
   font-weight: bold;
   color: #333;
@@ -81,7 +85,7 @@ page {
 .code {
   font-size: 24rpx;
   color: #999;
-  margin-top: 28rpx;
+  margin-top: 29rpx;
 }
 .icon-class{
 

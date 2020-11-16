@@ -2,8 +2,13 @@
 page {
   width: 100%;
   background-color: #f6f6f6;
+  width: 100%;
+  overflow-x:hidden;
 }
-
+.user-panel{
+  width: 100%;
+  overflow-x:hidden;
+}
 .divLine {
   background: #E0E3DA;
   width: 100%;
@@ -43,7 +48,7 @@ page {
   padding: 30rpx 0;
   display: flex;
   align-items: center;
-  border-bottom: 2rpx solid gray;
+  border-bottom: 2rpx solid #C0C0C0;
 }
 
 .head {
