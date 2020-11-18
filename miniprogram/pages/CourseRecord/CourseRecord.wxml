@@ -1,0 +1,13 @@
+<view class="box transition" wx:if="{{resdata.length}}">
+	<view class="user-panel" wx:for="{{resdata}}" wx:key="index">
+		<navigator url="../AllcoursesDetail/AllcoursesDetail?index={{resdata[index].courseId}}" style="" class="navigator">
+			<image class="head" src="https://whtx.gkybi.com.cn{{resdata[index].titleImg}} "></image>
+			<view class="center">
+				<view class="name">
+					<text class="name-text"> {{resdata[index].name}}</text>
+				</view>
+				<view class="code">已学进度：{{resdata[index].progress}} </view>
+			</view>
+		</navigator>
+	</view>
+</view>

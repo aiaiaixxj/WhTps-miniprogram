@@ -1,0 +1,15 @@
+<view class="box transition" wx:if="{{detail.length}}">
+	<view class="user-panel" wx:for="{{detail}}" wx:key="index">
+		<!-- <navigator url="../AllTrainingCoursesDetaildetail/AllTrainingCoursesDetaildetail?index={{detail[index].courseId}}" style="" class="navigator"> -->
+		<view class="navigator" bindtap="gotoOtherpages">
+			<image class="head" src="https://whtx.gkybi.com.cn{{detail[index].titleImg}} "></image>
+			<view class="center">
+				<view class="name">
+					<text class="name-text"> {{detail[index].name}} </text>
+				</view>
+				<view class="code">已学进度：{{detail[index].progress}} </view>
+			</view>
+		</view>
+		<!-- </navigator> -->
+	</view>
+</view>

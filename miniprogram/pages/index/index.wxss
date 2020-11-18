@@ -1,0 +1,18 @@
+/**index.wxss**/
+.container{
+  position: relative;
+}
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.ad-image{
+  display: flex;
+  width: 10rem;
+  height: 5rem;
+}
+

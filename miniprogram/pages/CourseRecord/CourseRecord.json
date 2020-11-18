@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "课程记录",
+  "usingComponents": {
+    "van-card": "../../miniprogram_npm/@vant/weapp/card/index",
+    "van-grid": "../../miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "../../miniprogram_npm/@vant/weapp/grid-item/index",
+    "van-button": "../../miniprogram_npm/@vant/weapp/button/index"
+  }
+}

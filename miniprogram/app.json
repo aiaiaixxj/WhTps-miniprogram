@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+ 
+   
+    "pages/AllTrainingCoursesDetail/AllTrainingCoursesDetail",
+    "pages/CourseRecord/CourseRecord",
+    "pages/Allcourses/Allcourses",
+    "pages/TrainingCoursesRecord/TrainingCoursesRecord",
+    "pages/AllTrainingCourses/AllTrainingCourses",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "pages/DynamicWork/DynamicWork",
+    "pages/newsDetail/newsDetail",
+    "pages/AllcoursesDetail/AllcoursesDetail",
+    "pages/AllTrainingCoursesDetaildetail/AllTrainingCoursesDetaildetail",
+    "pages/TrainingCoursesRecordDetail/TrainingCoursesRecordDetail"
+   
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "武汉市团校",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+
+}
