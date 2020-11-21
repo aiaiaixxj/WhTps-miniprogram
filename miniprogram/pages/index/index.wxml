@@ -9,11 +9,11 @@
 	<view style="position:absolute;z-index:20">
 		<image src="../../images/info_area.png" style="position:relative;top:90px;z-index:20"></image>
 		<view style="position:absolute;display:flex;flex-direction:column;z-index:99;left:15%;top:37%">
-			<view style="font-size:17px;margin:8px -20px;">{{orgname}} </view>
+			<view style="font-size:17px;margin:8px -20px;">{{orgname}}（{{realname}}）</view>
 		</view>
-		<view style="position:absolute;display:flex;flex-direction:column;z-index:99;left:50%;top:75%">
-			<view style="font-size:17px;margin:0px -20px;">{{realname}} </view>
-			<view style="font-size:17px;margin:0px -20px;">{{times}} </view>
+		<view style="position:absolute;display:flex;flex-direction:column;z-index:99;left:38%;top:75%">
+			<!-- <view style="font-size:17px;margin:0px -20px;"></view> -->
+			<view style="font-size:17px;margin:0px -20px;">已修学时：{{times}} </view>
 		</view>
 	</view>
 	<view class="tools-box" style="position:absolute;z-index:20;top:350px">

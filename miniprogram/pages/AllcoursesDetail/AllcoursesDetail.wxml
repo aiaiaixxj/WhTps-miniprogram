@@ -3,7 +3,7 @@
 		<view style="font-size:14px;word-break:break-all;margin:10px 10px"> {{detail.name}} </view>
 	</view>
 	<view class="" style="top:50px">
-		<video bindtimeupdate="timeUpdate"  initial-time='{{detail.studytime}}' binderror="videoErrorCallback" controls src=" {{detail.path}}" style="width:92vw"></video>
+		<video bindtimeupdate="timeUpdate"  initial-time='{{detail.studytime}}' binderror="videoErrorCallback"  show-progress="{{false}}" controls="{{true}}" enable-progress-gesture="{{false}}" src=" {{detail.path}}" style="width:92vw"></video>
 	</view>
 	
 	<view style="display:flex;flex-direction:column ;align-items: flex-start;width:92vw">

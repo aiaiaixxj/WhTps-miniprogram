@@ -2,7 +2,7 @@
 <view class="box transition" wx:if="{{resdata.length}}">
 	<view class="user-panel" wx:for="{{resdata}}" wx:key="index">
 		<navigator url="../newsDetail/newsDetail?index={{resdata[index].id}}" style="" class="navigator">
-		<image class="head" src="https://whtx.gkybi.com.cn{{resdata[index].titleImg}} "></image>
+		<image class="head" src="https://whtx.gkybi.com.cn{{resdata[index].typeImg}} "></image>
 		<view class="center">
 			<view class="name">
 				<text class="name-text"> {{resdata[index].title}}</text>

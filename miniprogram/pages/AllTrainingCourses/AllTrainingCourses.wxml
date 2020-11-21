@@ -11,6 +11,7 @@
 				<view class="code">发布时间：{{resdata[index].startDate}} </view>
 				<view class="code">结束时间：{{resdata[index].endDate}} </view>
 			</view>
+			<view class="divLine"> </view>
 		</view>
 		<!-- </navigator> -->
 	</view>
