@@ -1,4 +1,4 @@
-接口：
+###接口：
 1.登录：/app/login.jspx?username=420111197310115693&password=888888
 2.退出登录：/app/logout.jspx?userId=
 3.新闻列表：/app/content-list.jspx?channelId=2&pageNo=
@@ -12,7 +12,7 @@
 11.培训班记录：/app/trainingclass-user-list.jspx?userId=&pageNo=
 
 
-备注：
+####备注：
 1.分页
 2.域名做成整体变量
 3.截取字体
